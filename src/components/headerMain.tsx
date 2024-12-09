@@ -5,7 +5,7 @@ import { CiSearch } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose, MdKeyboardArrowDown } from "react-icons/md"; 
-import { FaUserCircle } from "react-icons/fa";
+import { FaRegUserCircle} from "react-icons/fa";
 
 const HeaderMain = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,7 +28,9 @@ const HeaderMain = () => {
         />
 
         {/* Logo */}
+        <Link href="/">
         <h1 className="text-3xl font-extrabold font-integral text-primary ml-10 mr-5">SHOP.CO</h1>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8 items-center relative">
@@ -49,10 +51,10 @@ const HeaderMain = () => {
                     <Link href="/shopPage">{`Men's`}</Link>
                   </li>
                   <li className="hover:bg-gray-100 px-2 py-1 rounded-md">
-                    <Link href="/casul">{`Woman's`}</Link>
+                    <Link href="/casual">Casual</Link>
                   </li>
                   <li className="hover:bg-gray-100 px-2 py-1 rounded-md">
-                    <Link href="/Cart">{`Kid's`}</Link>
+                    <Link href="/Cart">Cart</Link>
                   </li>
                 </ul>
               </div>
@@ -106,9 +108,9 @@ const HeaderMain = () => {
           <IoCartOutline className="text-2xl hover:text-gray-500" />
 
           {/* User Icon with Popup */}
-          <FaUserCircle
+          <FaRegUserCircle
             onClick={toggleUserMenu}
-            className="text-2xl text-secondary hover:text-gray-500 cursor-pointer"
+            className="text-2xl hover:text-gray-500 cursor-pointer"
           />
 
           {isUserMenuOpen && (

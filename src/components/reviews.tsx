@@ -52,7 +52,7 @@ const Reviews = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-10">
+    <section className="bg-gray-50 py-10 max-w-screen-2xl m-auto">
       <div className="max-w-screen-lg mx-auto">
         {/* Heading and Buttons */}
         <div className="flex items-center justify-between mb-6">
