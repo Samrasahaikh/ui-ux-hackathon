@@ -67,8 +67,8 @@ const Hero = () => {
       {/* Vector Image 1 */}
       <div className="hidden sm:block absolute top-[130px] right-[120px]">
         <Image
-          src="/vector.png"
-          alt="vector 1"
+          src="/Vector1.png"
+          alt="vector"
           width={104}
           height={104}
           className="w-auto h-auto"
