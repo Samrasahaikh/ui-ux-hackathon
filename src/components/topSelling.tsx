@@ -75,7 +75,7 @@ const ProductBox = ({ product }: { product: Product }) => {
       </Link>
       <h1 className="font-bold font-sans pt-2 text-sm sm:text-md text-left ">{product.title}</h1>
       <div className="flex items-center space-x-2">
-        <span className="text-secondary font-bold">{product.price}</span>
+        <span className="text-black font-bold">{product.price}</span>
         {product.oldPrice && (
           <>
             <span className="text-gray-400 font-bold line-through">
