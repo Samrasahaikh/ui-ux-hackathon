@@ -162,16 +162,14 @@ const HeaderMain = () => {
             <Link href="/" className="text-primary hover:text-gray-500">
               Home
             </Link>
-            <Link href="/shopPage" className="text-primary hover:text-gray-500">
-              Shop
-            </Link>
+
             <Link href="/casual" className="text-primary hover:text-gray-500">
               On Sale
             </Link>
-            <Link href="/casual" className="text-primary hover:text-gray-500">
+            <Link href="/shopPage" className="text-primary hover:text-gray-500">
               New Arrivals
             </Link>
-            <Link href="/casual" className="text-primary hover:text-gray-500">
+            <Link href="/brand" className="text-primary hover:text-gray-500">
               Brands
             </Link>
           </nav>
