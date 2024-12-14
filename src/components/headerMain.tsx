@@ -24,7 +24,7 @@ const HeaderMain = () => {
         {/* Hamburger Menu */}
         <GiHamburgerMenu
           onClick={toggleMenu}
-          className="md:hidden flex text-2xl hover:text-gray-500 cursor-pointer "
+          className="md:hidden flex text-2xl hover:text-gray-500 cursor-pointer z-50"
         />
 
         {/* Logo */}
@@ -47,7 +47,7 @@ const HeaderMain = () => {
 
             {/* Shop Popup Menu */}
             {isShopMenuOpen && (
-              <div className="absolute top-full left-0 bg-white shadow-lg rounded-md p-4 w-48 z-50">
+              <div className="absolute top-full left-0 bg-white shadow-lg rounded-md p-4 w-40 z-50">
                 <ul className="space-y-2">
                   <li className="hover:bg-gray-100 px-2 py-1 rounded-md">
                     <Link href="/">Home</Link>

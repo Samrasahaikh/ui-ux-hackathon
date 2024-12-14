@@ -14,7 +14,7 @@ const Hero = () => {
         <p className="mt-4 text-[20px] md:text-base text-gray-600 text-left">
           Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.
         </p>
-        <button className="mt-6 bg-primary text-sm md:text-base text-white px-40 py-4 md:px-12 rounded-full hover:text-primary hover:bg-transparent border hover:border-primary transition">
+        <button className="mt-6 bg-primary text-[12px] md:text-base text-white px-40 py-4 md:px-12 rounded-full hover:text-primary hover:bg-transparent border hover:border-primary transition">
           Shop Now
         </button>
         
