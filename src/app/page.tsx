@@ -10,7 +10,7 @@ import React from 'react'
 
 const HomePage = () => {
   return (
-    <div>
+    <div className='max-w-screen-2xl m-auto'>
     <Hero />
     <BrandLogo/>
     <NewArrivals />

@@ -62,7 +62,7 @@ const Cart = () => {
   const total = subtotal - discount + deliveryFee;
 
   return (
-    <div className="p-6 lg:p-12 bg-gray-50 min-h-screen">
+    <div className="p-6 lg:p-12 bg-gray-50 min-h-screen max-w-screen-2xl m-auto">
       <div className="">
         <BreadcrumbProducts/>
         </div>

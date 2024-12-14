@@ -7,7 +7,7 @@ import BreadcrumbProduct from '@/components/product-page/BreadcrumbProduct'
 
 const ShopPage = () => {
   return (
-    <div>
+    <div className='max-w-screen-2xl m-auto'>
     
       <BreadcrumbProduct />
       <DetailSection />

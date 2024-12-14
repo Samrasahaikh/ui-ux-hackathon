@@ -29,7 +29,7 @@ const BrandPage = () => {
         AOS.init({ duration: 1000 }); // Initialize AOS with a duration of 1 second
       }, []);
   return (
-    <div className="bg-gray-50 min-h-screen p-6 lg:p-12">
+    <div className="bg-gray-50 min-h-screen p-6 lg:p-12 max-w-screen-2xl m-auto">
       {/* Page Title */}
       <h1 className="text-3xl font-bold mb-8 text-center">Our Products</h1>
 

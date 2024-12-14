@@ -8,7 +8,7 @@ const MainPage = () => {
   return (
 <div >
 <BreadcrumbProduct />
-    <main className="w-full flex justify-center items-center md:p-10 mt-10 mb-1 max-w-screen-2xl mx-auto">
+    <main className="w-full flex justify-center items-center md:p-10 mt-10 mb-1 max-w-screen-2xl m-auto">
       {/* Left Section - Filter */}
       <div className="w-[30%] hidden md:block">
         <Filter />

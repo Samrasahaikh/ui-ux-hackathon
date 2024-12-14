@@ -19,12 +19,12 @@ const HeaderMain = () => {
   const toggleShopMenu = () => setIsShopMenuOpen(!isShopMenuOpen); // Toggle Shop menu
 
   return (
-    <header className="bg-white shadow-sm border-b mx-auto flex flex-col max-w-screen-2xl">
+    <header className="bg-white shadow-sm border-b mx-auto flex flex-col max-w-screen-2xl m-auto">
       <div className="flex justify-between items-center px-6 sm:px-12 md:px-32 py-4">
         {/* Hamburger Menu */}
         <GiHamburgerMenu
           onClick={toggleMenu}
-          className="sm:hidden flex text-2xl hover:text-gray-500 cursor-pointer "
+          className="md:hidden flex text-2xl hover:text-gray-500 cursor-pointer "
         />
 
         {/* Logo */}

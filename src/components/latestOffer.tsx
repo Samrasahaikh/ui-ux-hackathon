@@ -4,7 +4,7 @@ import { TfiEmail } from 'react-icons/tfi'
 const LatestOffer = () => {
   return (
 
-    <div className='flex flex-col md:flex-row items-center bg-primary md:w-[1240px] w-full h-auto top-[3781px] left-[100px] rounded-xl justify-between pt-[36px] pr-[64px] pb-[36px] pl-[64px] max-w-screen-2xl m-auto mt-10'>
+    <div className='flex flex-col md:flex-row items-center bg-primary md:w-[1240px] w-full h-auto top-[3781px] left-[100px] rounded-xl justify-between pt-[36px] pr-[64px] pb-[36px] pl-[64px] max-w-screen-2xl m-0 mt-10'>
       {/* Heading */}
       <h1 className='font-integral font-extrabold text-5xl leading-[45px] text-white text-start md:text-left md:w-1/2'>
         STAY UPTO DATE ABOUT OUR LATEST OFFERS
