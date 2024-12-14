@@ -77,7 +77,9 @@ const Cart = () => {
               className="flex items-center justify-between bg-white p-4 rounded-lg shadow"
             >
               <div className="flex items-center gap-4">
-                <Image src={item.img} alt={item.name} className="w-20 h-20 rounded" />
+                <Image src={item.img} alt={item.name} 
+                width={200}
+                height={200} className="w-20 h-20 rounded" />
                 <div>
                   <h2 className="text-lg font-semibold">{item.name}</h2>
                   <p className="text-gray-500 text-sm">
