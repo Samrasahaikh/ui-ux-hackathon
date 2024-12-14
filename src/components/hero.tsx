@@ -2,11 +2,12 @@ import React from "react";
 import Image from "next/image";
 
 
+
 const Hero = () => {
   return (
     <div className="relative flex flex-col-reverse sm:flex-row-reverse justify-between items-center w-full h-auto bg-[#F2F0F1] max-w-screen-2xl m-auto">
       {/* Text Section */}
-      <div className="order-2 sm:order-1 w-full max-w-[600px] p-4 md:p-8 text-center sm:text-left sm:absolute sm:top-[100px] sm:left-[50px] lg:left-[100px]">
+      <div className="order-2 sm:order-1 w-full max-w-[600px] p-4 md:p-8 text-center sm:text-left sm:absolute sm:top-[100px] sm:left-[50px] lg:left-[100px] slide-in-bottom">
         <h1 className="text-5xl md:text-6xl text-left font-extrabold font-integral leading-[64px] text-primary">
           FIND CLOTHES THAT MATCH YOUR STYLE
         </h1>
@@ -54,7 +55,7 @@ const Hero = () => {
       </div>
 
       {/* Hero Image */}
-      <div className="order-1 sm:order-2 relative sm:w-1/2 sm:h-auto mt-[5%] ">
+      <div className="order-1 sm:order-2 relative sm:w-1/2 sm:h-auto mt-[5%] slide-in-bottom">
         <Image
           src="/hero3.webp"
           alt="hero image"
@@ -65,18 +66,18 @@ const Hero = () => {
       </div>
 
       {/* Vector Image 1 */}
-      <div className="hidden sm:block absolute top-[130px] right-[120px]">
+      <div className="hidden sm:block absolute top-[130px] right-[120px] border-t-transparent spin-with-pause">
         <Image
           src="/Vector1.png"
           alt="vector"
           width={104}
           height={104}
-          className="w-auto h-auto"
+          className="w-auto h-auto "
         />
       </div>
 
       {/* Vector Image 2 */}
-      <div className="hidden sm:block absolute top-[330px] left-[750px]">
+      <div className="hidden sm:block absolute top-[330px] left-[750px] border-t-transparent spin-with-pause">
         <Image
           src="/vector2.png"
           alt="vector 2"

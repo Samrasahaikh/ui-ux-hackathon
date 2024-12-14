@@ -1,58 +1,67 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { BsDash } from "react-icons/bs";
 import { FiPlus } from "react-icons/fi";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 const DetailSection = () => {
-  const [selectedColor, setSelectedColor] = useState("Olive Brown");
+  // State to track selected large image
+  const [selectedImage, setSelectedImage] = useState("/detail/detail1.png");
 
-  const handleColorSelect = (color: string) => {
-    setSelectedColor(color);
-  };
+    const [count, setCount] = useState(1); // initial value is 1
+  
+    const increment = () => setCount(count + 1); // Increment by 1
+    const decrement = () => setCount(count - 1); // Decrement by 1
+
+
+    useEffect(() => {
+      AOS.init({ duration: 1000 }); // Initialize AOS with a duration of 1 second
+    }, []);
+
+  // Small images array
+  const smallImages = [
+    "/detail/detail1.png",
+    "/detail/detail3.png",
+    "/detail/detail4.png",
+  ];
 
   return (
     <div className="flex flex-col md:flex-row max-w-screen-xl mx-auto p-4 gap-8">
-
-
       {/* Smaller Images */}
-      <div className="order-2 md:order-none flex md:flex-col items-center md:items-start gap-4 md:w-1/3 overflow-x-auto md:overflow-visible ml-4 ">
-        <Image
-          src="/detail/detail2.png"
-          alt="Shirt Detail"
-          width={130}
-          height={100}
-          className="rounded-md md:w-[150] md:h-[170]"
-        />
-        <Image
-          src="/detail/detail3.png"
-          alt="Shirt Detail"
-          width={130}
-          height={100}
-          className="rounded-md md:w-[150] md:h-[170]"
-        />
-        <Image
-          src="/detail/detail4.png"
-          alt="Shirt Detail"
-          width={130}
-          height={100}
-          className="rounded-md md:w-[150] md:h-[170]"
-        />
+      <div className="order-2 md:order-none flex md:flex-col items-center md:items-start gap-4 md:w-1/3 overflow-x-auto md:overflow-visible ml-4" data-aos="fade-down">
+        {smallImages.map((image, index) => (
+          <Image
+            key={index}
+            src={image}
+            alt={`Shirt Detail ${index + 1}`}
+            width={130}
+            height={100}
+            className={`rounded-md cursor-pointer ${
+              selectedImage === image ? "ring-4 ring-primary" : ""
+            }`}
+            onClick={() => setSelectedImage(image)} // Update large image on click
+          />
+        ))}
       </div>
-            {/* Large Image */}
-            <div className="order-1 md:order-none flex justify-center md:justify-start md:-ml-28">
+
+      {/* Large Image */}
+      <div className="order-1 md:order-none flex justify-center md:justify-start md:-ml-28"
+      data-aos="fade-down">
         <Image
-          src="/detail/detail1.png"
-          alt="Shirt Image"
+          src={selectedImage}
+          alt="Selected Shirt"
           width={600}
           height={400}
-          className="rounded-md md:h-[530] md:w-[700]"
+          className="rounded-md md:h-[530] md:w-[700] "
         />
       </div>
 
       {/* Text Content */}
-      <div className="order-3 md:order-none flex flex-col gap-4 md:w-2/3">
+      <div className="order-3 md:order-none flex flex-col gap-4 md:w-2/3"
+      data-aos="fade-right">
         <h1 className="text-3xl font-bold">One Life Graphic T-shirt</h1>
         <div className="flex items-center text-yellow-500">
           <AiFillStar />
@@ -81,29 +90,20 @@ const DetailSection = () => {
           <h3 className="text-lg text-gray-500 font-satoshi">Select Colors</h3>
           <div className="flex gap-4">
             <button
-              onClick={() => handleColorSelect("Olive Brown")}
-              className={`w-8 h-8 rounded-full bg-[#4F4631] ${
-                selectedColor === "Olive Brown" ? "ring-4 ring-[#4F4631]" : ""
-              }`}
+              className="w-8 h-8 rounded-full bg-[#4F4631] ring-4 ring-[#4F4631]"
             />
             <button
-              onClick={() => handleColorSelect("Deep Teal")}
-              className={`w-8 h-8 rounded-full bg-[#314F4A] ${
-                selectedColor === "Deep Teal" ? "ring-4 ring-[#314F4A]" : ""
-              }`}
+              className="w-8 h-8 rounded-full bg-[#314F4A]"
             />
             <button
-              onClick={() => handleColorSelect("Charcoal")}
-              className={`w-8 h-8 rounded-full bg-[#31344F] ${
-                selectedColor === "Charcoal" ? "ring-4 ring-[#31344F]" : ""
-              }`}
+              className="w-8 h-8 rounded-full bg-[#31344F]"
             />
           </div>
         </div>
 
         {/* Size Options */}
         <div className="flex flex-col gap-4 border-t-2 pt-4">
-          <h3 className="text-lg  text-gray-500 font-satoshi">Choose Size</h3>
+          <h3 className="text-lg text-gray-500 font-satoshi">Choose Size</h3>
           <div className="flex flex-wrap gap-4">
             {["Small", "Medium", "Large", "X-Large"].map((size) => (
               <button
@@ -119,10 +119,10 @@ const DetailSection = () => {
         {/* Quantity and Add to Cart */}
         <div className="flex flex-wrap gap-4 border-t-2 pt-4">
           <button className="flex items-center justify-between w-32 bg-[#F0F0F0] px-4 py-2 rounded-full hover:bg-black hover:text-white border transition">
-            <BsDash />
-            1
-            <FiPlus />
-          </button>
+      <BsDash onClick={decrement} className="cursor-pointer" />
+      {count}
+      <FiPlus onClick={increment} className="cursor-pointer" />
+    </button>
           <button className="bg-primary text-white px-24 md:px-36 py-3 rounded-full hover:bg-transparent hover:text-primary border transition">
             Add To Cart
           </button>

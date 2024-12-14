@@ -1,6 +1,9 @@
-import React from "react";
+"use client"
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { FaRegStar, FaStar, FaStarHalf } from "react-icons/fa";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 
 // Define the Product Type
@@ -47,21 +50,25 @@ const products = [
 const ProductBox = ({ product }: { product: Product }) => {
   const fullStars = Math.floor(product.rating); // Full stars
   const hasHalfStar = product.rating % 1 !== 0; // Check if there is a half star
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with a duration of 1 second
+  }, []);
 
   return (
     <div className="w-full sm:w-[48%] md:w-[22%] flex flex-col items-center">
-      <div className="group shadow-md bg-[#F0EEED] w-[270px] h-[250px] flex justify-center items-center relative cursor-pointer rounded-md overflow-hidden">
+      <div className="group shadow-md bg-[#F0EEED] w-[270px] h-[250px] flex justify-center items-center relative cursor-pointer rounded-md overflow-hidden"
+      data-aos="fade-up">
         <Image
           src={product.image}
           alt={product.title}
           width={200}
           height={100}
-          className="object-cover"
+          className="object-cover transform transition-transform duration-500 group-hover:scale-110"
         />
       </div>
       <h1 className="font-bold font-sans pt-2 text-sm sm:text-md text-left ">{product.title}</h1>
       <div className="flex items-center space-x-2">
-        <span className="text-secondary font-bold">{product.price}</span>
+        <span className="text-black font-bold">{product.price}</span>
         {product.oldPrice && (
           <>
             <span className="text-gray-400 font-bold line-through">
@@ -99,14 +106,15 @@ const ReviewsProduct = () => {
           {/* Header Section */}
           <div className="flex flex-col ">
             <div className="flex justify-center items-center mt-4">
-              <h1 className="text-gray-800 font-integral font-extrabold text-lg sm:text-2xl md:text-5xl">
+              <h1 className="text-gray-800 font-integral font-extrabold text-lg sm:text-2xl md:text-5xl"
+              data-aos="fade-down">
               YOU MIGHT ALSO LIKE
               </h1>
             </div>
           </div>
 
           {/* Product Section */}
-          <div className="flex flex-wrap justify-center sm:justify-between gap-5 mt-8">
+          <div className="flex flex-wrap justify-center sm:justify-between gap-5 mt-8" data-aos="fade-up">
             {products.map((product, index) => (
               <ProductBox key={index} product={product} />
             ))}

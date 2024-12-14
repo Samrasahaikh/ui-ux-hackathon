@@ -4,8 +4,8 @@ import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { MdClose, MdKeyboardArrowDown } from "react-icons/md"; 
-import { FaRegUserCircle} from "react-icons/fa";
+import { MdClose, MdKeyboardArrowDown } from "react-icons/md";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const HeaderMain = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,7 +29,9 @@ const HeaderMain = () => {
 
         {/* Logo */}
         <Link href="/">
-        <h1 className="text-3xl font-extrabold font-integral text-primary ml-10 mr-5">SHOP.CO</h1>
+          <h1 className="text-3xl font-extrabold font-integral text-primary ml-10 mr-5">
+            SHOP.CO
+          </h1>
         </Link>
 
         {/* Desktop Navigation */}
@@ -48,25 +50,37 @@ const HeaderMain = () => {
               <div className="absolute top-full left-0 bg-white shadow-lg rounded-md p-4 w-48 z-50">
                 <ul className="space-y-2">
                   <li className="hover:bg-gray-100 px-2 py-1 rounded-md">
-                    <Link href="/shopPage">{`Men's`}</Link>
+                    <Link href="/">Home</Link>
+                  </li>
+                  <li className="hover:bg-gray-100 px-2 py-1 rounded-md">
+                    <Link href="/shopPage">Shop</Link>
                   </li>
                   <li className="hover:bg-gray-100 px-2 py-1 rounded-md">
                     <Link href="/casual">Casual</Link>
                   </li>
                   <li className="hover:bg-gray-100 px-2 py-1 rounded-md">
-                    <Link href="/Cart">Cart</Link>
+                    <Link href="/cart">Cart</Link>
                   </li>
                 </ul>
               </div>
             )}
           </div>
-          <Link href="#" className="text-primary hover:text-gray-500 hover:underline">
+          <Link
+            href="/casual"
+            className="text-primary hover:text-gray-500 hover:underline"
+          >
             On Sale
           </Link>
-          <Link href="#" className="text-primary hover:text-gray-500 hover:underline">
+          <Link
+            href="/shopPage"
+            className="text-primary hover:text-gray-500 hover:underline"
+          >
             New Arrivals
           </Link>
-          <Link href="#" className="text-primary hover:text-gray-500 hover:underline">
+          <Link
+            href="/brand"
+            className="text-primary hover:text-gray-500 hover:underline"
+          >
             Brands
           </Link>
         </nav>
@@ -104,9 +118,9 @@ const HeaderMain = () => {
               className="bg-slate-100 outline-none text-sm"
             />
           </div>
-
+            <Link href="/cart">
           <IoCartOutline className="text-2xl hover:text-gray-500" />
-
+            </Link>
           {/* User Icon with Popup */}
           <FaRegUserCircle
             onClick={toggleUserMenu}
@@ -136,6 +150,33 @@ const HeaderMain = () => {
           )}
         </div>
       </div>
+
+      {/* Hamburger Menu - Sliding Sidebar */}
+      {isMenuOpen && (
+        <div className="sm:hidden absolute top-0 left-0 w-3/4 h-full bg-white shadow-lg z-50 transition-transform transform translate-x-0">
+          <div className="flex justify-between items-center p-4">
+            <h2 className="text-2xl font-bold">Menu</h2>
+            <MdClose onClick={toggleMenu} className="text-2xl cursor-pointer" />
+          </div>
+          <nav className="flex flex-col items-start space-y-4 px-6">
+            <Link href="/" className="text-primary hover:text-gray-500">
+              Home
+            </Link>
+            <Link href="/shopPage" className="text-primary hover:text-gray-500">
+              Shop
+            </Link>
+            <Link href="/casual" className="text-primary hover:text-gray-500">
+              On Sale
+            </Link>
+            <Link href="/casual" className="text-primary hover:text-gray-500">
+              New Arrivals
+            </Link>
+            <Link href="/casual" className="text-primary hover:text-gray-500">
+              Brands
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };

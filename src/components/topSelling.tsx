@@ -1,6 +1,10 @@
-import React from "react";
+"use client"
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { FaRegStar, FaStar, FaStarHalf } from "react-icons/fa";
+import Link from "next/link";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 
 // Define the Product Type
@@ -48,20 +52,27 @@ const ProductBox = ({ product }: { product: Product }) => {
   const fullStars = Math.floor(product.rating); // Full stars
   const hasHalfStar = product.rating % 1 !== 0; // Check if there is a half star
 
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with a duration of 1 second
+  }, []);
+
   return (
-    <div className="w-full sm:w-[48%] md:w-[22%] flex flex-col items-center">
+    <div className="w-full sm:w-[48%] md:w-[22%] flex flex-col items-center"
+    data-aos="fade-down">
+      <Link href="/shopPage">
       <div className="group shadow-md bg-[#F0EEED] w-[270px] h-[250px] flex justify-center items-center relative cursor-pointer rounded-md overflow-hidden">
         <Image
           src={product.image}
           alt={product.title}
           width={200}
           height={100}
-          className="object-cover"
+          className="object-cover transform transition-transform duration-500 group-hover:scale-110"
         />
         <button className="w-full absolute bottom-0 bg-primary text-white px-4 py-2 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           Add To Cart
         </button>
       </div>
+      </Link>
       <h1 className="font-bold font-sans pt-2 text-sm sm:text-md text-left ">{product.title}</h1>
       <div className="flex items-center space-x-2">
         <span className="text-secondary font-bold">{product.price}</span>
@@ -95,6 +106,11 @@ const ProductBox = ({ product }: { product: Product }) => {
 };
 
 const TopSelling = () => {
+
+  useEffect(() => {
+    AOS.init(); // Initialize AOS here as well
+  }, []);
+
   return (
     <main>
       <div className="w-full flex justify-center items-start mt-10 mb-1 max-w-screen-2xl m-auto border-t-2">
@@ -102,7 +118,7 @@ const TopSelling = () => {
           {/* Header Section */}
           <div className="flex flex-col ">
             <div className="flex justify-center items-center mt-4">
-              <h1 className="text-gray-800 font-integral font-extrabold text-lg sm:text-2xl md:text-5xl">
+              <h1 className="text-gray-800 font-integral font-extrabold text-lg sm:text-2xl md:text-5xl" data-aos="fade-down">
               TOP SELLING
               </h1>
             </div>
@@ -116,8 +132,10 @@ const TopSelling = () => {
           </div>
           {/* View All Button */}
           <div className="flex justify-center mt-6">
-            <button className="text-black border-2 shadow-sm px-20 py-3 rounded-full font-satoshi text-[18px] hover:bg-black hover:text-white">
+            <button className="text-black border-2 shadow-sm px-20 py-3 rounded-full font-satoshi text-[18px] hover:bg-black hover:text-white" data-aos="fade-down">
+              <Link href="/casual">
               View All
+              </Link>
             </button>
           </div>
         </div>

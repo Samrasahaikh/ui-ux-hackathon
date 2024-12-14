@@ -1,13 +1,19 @@
-import React from "react";
+"use client"
+import React, { useEffect } from "react";
 import { HiAdjustmentsVertical } from "react-icons/hi2";
 import { MdCircle, MdKeyboardArrowRight, MdOutlineKeyboardArrowUp } from "react-icons/md";
+import "aos/dist/aos.css";
+import AOS from "aos";
 
 const Filter = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Initialize AOS with a duration of 1 second
+  }, []);
   return (
     <div className="p-4">
-      <div className="flex md:justify-start mt-4">
+      <div className="flex md:justify-center mr-10 mt-4">
         {/* left section  */}
-        <div className="w-full max-w-[295px] md:w-[295px] h-auto bg-white rounded-[20px] border shadow-md p-6 text-black">
+        <div className="w-full max-w-[295px] md:w-[295px] h-auto bg-white rounded-[20px] border shadow-md p-6 text-black" data-aos="fade-right">
           <div className="flex justify-between items-center">
             <h3 className="font-bold text-[20px] leading-[27px]">Filters</h3>
             <div className="bg-gray-200 p-2 rounded-full hover:bg-gray-300 cursor-pointer">

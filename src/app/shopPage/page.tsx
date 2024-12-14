@@ -1,18 +1,17 @@
 import React from 'react'
-import Navbar from './navbar'
 import DetailSection from './detailSection'
-import Reviews from './customerReview'
 import ReviewsProduct from './reviewsProduct'
-import ReviewLinks from './links'
+import ReviewLinks from './reviewLinks/links'
+import BreadcrumbProduct from '@/components/product-page/BreadcrumbProduct'
 
 
 const ShopPage = () => {
   return (
     <div>
-      <Navbar/>
+    
+      <BreadcrumbProduct />
       <DetailSection />
       <ReviewLinks />
-      <Reviews />
       <ReviewsProduct/>
     </div>
   )
